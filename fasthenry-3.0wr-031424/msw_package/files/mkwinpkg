@@ -1,0 +1,122 @@
+#! /bin/sh
+
+program=fasthenry
+version="3.0wr"
+vdate="031424"
+
+# The inno packager exeutable.
+inno="/inno-5.5.9/iscc"
+
+# Unix to Dos line termination converter
+u2d="files/utod.exe"
+
+topdir=data
+
+rm -rf $topdir
+mkdir $topdir
+
+bin=$topdir/bin
+share=$topdir/share
+lib=$share/fasthenry
+docs=$lib/docs
+examples=$lib/examples
+
+srcbin=../bin
+srclib=..
+
+mkdir $bin
+mkdir $share
+mkdir $lib
+mkdir $docs
+mkdir $examples
+mkdir $examples/input
+mkdir $examples/results
+mkdir $examples/results/linux_dss
+mkdir $examples/results/linux_klu
+mkdir $examples/results/linux_sparse
+mkdir $examples/torture
+
+echo copying $srcbin
+install -sc -m 0755 $srcbin/fasthenry.exe $bin
+install -sc -m 0755 $srcbin/zbuf.exe $bin
+
+echo copying $srclib/examples
+cp $srclib/examples/cf $examples
+cp $srclib/examples/README $examples
+cp $srclib/examples/run $examples
+# Leave cf and run scripts in unix format or they won't work.
+$u2d $examples/README
+rm -f $examples/*~
+
+echo copying $srclib/examples/input
+cp $srclib/examples/input/30pin.inp $examples/input
+cp $srclib/examples/input/3d_example2.inp $examples/input
+cp $srclib/examples/input/3d_example2_coarse.inp $examples/input
+cp $srclib/examples/input/broken.inp $examples/input
+cp $srclib/examples/input/gpexamp_copper.inp $examples/input
+cp $srclib/examples/input/hole.inp $examples/input
+cp $srclib/examples/input/holey_gp.inp $examples/input
+cp $srclib/examples/input/make_nonuniform.c $examples/input
+cp $srclib/examples/input/msm.inp $examples/input
+cp $srclib/examples/input/noname.inp $examples/input
+cp $srclib/examples/input/nonuni01.inp $examples/input
+cp $srclib/examples/input/onebargp.inp $examples/input
+cp $srclib/examples/input/pin-con2seg.inp $examples/input
+cp $srclib/examples/input/pin-con7.inp $examples/input
+cp $srclib/examples/input/pin-connect.inp $examples/input
+cp $srclib/examples/input/plane.in $examples/input
+cp $srclib/examples/input/simple_gp.inp $examples/input
+cp $srclib/examples/input/sline1.inp $examples/input
+cp $srclib/examples/input/sline2.inp $examples/input
+cp $srclib/examples/input/template.inp $examples/input
+cp $srclib/examples/input/together.inp $examples/input
+cp $srclib/examples/input/together_nonuni.inp $examples/inputs
+cp $srclib/examples/input/trace.test.release $examples/input
+cp $srclib/examples/input/trace_over_mesh_new.inp $examples/input
+cp $srclib/examples/input/tree_sample.hier $examples/input
+cp $srclib/examples/input/tree_sample.inp $examples/input
+cp $srclib/examples/input/vias.inp $examples/input
+$u2d $examples/input/*
+rm -f $examples/input/*~
+
+echo copying $srclib/examples/results/linux_dss
+cp $srclib/examples/results/linux_dss/* $examples/results/linux_dss
+$u2d $examples/results/linux_dss/*
+rm -f $examples/results/linux_dss/*~
+
+echo copying $srclib/examples/results/linux_klu
+cp $srclib/examples/results/linux_klu/* $examples/results/linux_klu
+$u2d $examples/results/linux_klu/*
+rm -f $examples/results/linux_klu/*~
+
+echo copying $srclib/examples/results/linux_sparse
+cp $srclib/examples/results/linux_sparse/* $examples/results/linux_sparse
+$u2d $examples/results/linux_sparse/*
+rm -f $examples/results/linux_sparse/*~
+
+echo copying $srclib/doc
+cp $srclib/README $docs
+cp $srclib/README.MIT $docs
+cp $srclib/doc/fasthenry_manual.pdf $docs
+cp $srclib/doc/ms_thesis.pdf $docs
+cp $srclib/doc/nonuniform_manual.pdf $docs
+$u2d $docs/README
+$u2d $docs/README.MIT
+rm -f $docs/*~
+
+echo Completed copying files to data directory
+
+sed -e s/VERSION/$version/ -e s/VDATE/$vdate/ < files/$program.iss.in > $program.iss
+$u2d $program.iss
+
+$inno $program.iss > build.log
+if [ $? != 0 ]; then
+    echo Compile failed!
+    exit 1
+fi
+
+mv Output/*.exe .
+rmdir Output
+rm $program.iss
+echo Done
+

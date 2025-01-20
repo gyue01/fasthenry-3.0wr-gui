@@ -1,0 +1,2 @@
+# Sun Solaris
+CFLAGS = -O -DFIVE -DSOLARIS

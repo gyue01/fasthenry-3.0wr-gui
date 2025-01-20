@@ -1,0 +1,59 @@
+Running FastHenry 3.0wr (29Sep96, mod 090919)
+Using SuiteSparse linear algebra package by Tim Davis, Texas A&M.
+  Date: Mon Sep  9 19:51:21 2019
+  Host: frost
+Solution technique: ITERATIVE
+Matrix vector product method: MULTIPOLE
+  Order of expansion: 2
+Preconditioner: ON
+Error tolerance: 0.001
+Reading from file: ./input/noname.inp
+Title:
+** FastHenry input
+
+all lengths multiplied by 1e-06 to convert to meters
+Total number of filaments before multipole refine: 84136
+Total number of filaments after multipole refine: 84136
+
+Multipole Summary
+  Expansion order: 2
+  Number of partitioning levels: 8
+  Total number of filaments: 84136
+Percentage of multiplies done by multipole: 100%
+Scanning graph to find fundamental circuits...
+Number of Groundplanes : 0 
+Number of filaments:      84136
+Number of segments:       84136
+Number of nodes:          62508
+Number of meshes:         27327
+          ----from tree:                   27327 
+          ----from planes: (before holes)  0 
+Number of conductors:         2   (rows of matrix in Zc.mat) 
+Number of columns:            2   (columns of matrix in Zc.mat) 
+Number of real nodes:     56813
+filling M...
+filling R and L...
+Total Memory allocated: 1257002 kilobytes
+Frequency = 1000
+Forming sparse matrix preconditioner.
+All segments are lossless superconductors.
+ 10.0 20.0 30.0 40.0 50.0 60.0 70.0 80.0 90.0 100.0
+Precond build time 258.538
+Reorder and factor time 0.756727
+conductor 0 from node n69005
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 
+conductor 1 from node n1598
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 
+
+All impedance matrices dumped to file Zc.mat
+
+Times:  Read geometry   0.278559
+        Multipole setup 4.94252
+        Scanning graph  0.256495
+        Form A M and Z  5.4606
+        form M'ZM       1e-06
+        Form precond    259.295
+        GMRES time      37.5421
+   Total:               307.775

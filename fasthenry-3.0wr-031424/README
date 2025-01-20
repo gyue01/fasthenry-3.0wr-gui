@@ -1,0 +1,365 @@
+
+                       F a s t H e n r y   3 . 0 w r
+                       -----------------------------
+                                 10-21-2001
+
+Modifications by:        Stephen R. Whiteley  (stevew@wrcad.com)
+                         Whitleley Research Inc.
+
+** This is the fasthenry-3.0-12Nov96 distribution with the following
+   changes:
+
+  1) Support for superconductive elements has been added.  This release
+     is the successor to fasthenry-2.0S.
+
+  2) All references to "malloc.h" in the source code have been changed
+     to "stdlib.h" to avoid a cascade of warnings during compilation.
+
+  3) A long expression in mutual.c which triggered a compiler bug in
+     Red Hat Linux 6.0 has been altered to avoid the bug.
+
+  4) This version of fasthenry returns status 0 if there are no
+     errors, nonzero if an error occurs.  The original version had
+     undefined return status.
+
+  5) The latex files for the manual have been eliminated, since they
+     are useless without the figures.  The master's thesis has been
+     included instead (in the doc directory).
+
+  6) Two superconducting example files, sline1.inp and sline2.inp
+     have been added to the examples directory.
+
+  7) Added declarations of static functions in sparse matrix package
+     to avoid annoying compiler warnings.
+
+  8) Ported to Microsoft Windows using the mingw (www.mingw.org)
+     version of gcc.  To build under mingw, use "config mingw".  The
+     source code was made sensitive to the following defines, which
+     are all necessary for mingw.
+
+     a) NO_SBRK            The library lacks the sbrk() function.
+     b) NO_ATANH           Substitute for missing atanh() and asinh()
+                           functions.
+     c) NO_ISNAN           The library lacks isnan() and finite()
+                           functions.
+
+** 4-25-2001 Bug Fix:  .default lambda=xxx should work now
+
+** 6-19-2001 Bug Fix:  Error in resistance computation fixed
+
+** 10-21-2001 Changes:
+
+  1) For segments with no sigma/rho/lambda defined with no explicit
+     defaults, sigma now defaults to copper (5.8e7).  Previously this
+     was a fatal error.
+
+  2) When files are opened for writing, binary files are now opened
+     in "wb" mode rather than "w" mode.  This is only important under
+     Microsoft Windows, where binary data can be corrupted if file
+     pointers are not explicitly opened in binary mode.
+
+** 4-27-2004 Changes:
+
+  Added #include "sparse/spMatrix" in Preconfig.c for declaration of
+  spGetElement.  This is critical when ints and pointers are of different
+  widths.
+
+  Commented out redundant spGetElement declaration in newPreconfig.c.
+
+  Declaration of umalloc added to mulGlobal.h in zbuf, for int/pointer
+  width difference.
+
+  All programs compile without warnings on 64-bit sparc gcc-3.x
+  (Solaris 8) using CC = gcc and CFLAGS = -O -m64 -DFOUR.
+
+** 1-11-2009 Changes:
+
+  Misc. code tweeks to avoid compiler warnings when using newer
+  compilers, e.g., gcc-4.2.
+
+** 2-11-2013 Changes:
+
+  Fixed all warnings that issued when building on a OS X 10.6 MacBook
+  Pro, using the default configuration.  The programs should now build
+  cleanly on 64-bit platforms.
+
+** 1-1-2014 Changes:
+
+  Added function prototypes to source code.  Compilation is clean
+  under OS X 10.9.
+
+** 8-7-2014 Changes:
+
+  Major improvements in the computation speed of large problems.  The
+  sparse preconditioner setup was a huge bottleneck.  In particular,
+  with one benchmark (added to the examples as noname.inp) building
+  the preconditioner previously took more than 7 hours.  In the
+  present release, the same task takes about 5 minutes.  The actual
+  GMRES solving takes only about 40 seconds, so overall time is still
+  dominated by preconditioner setup, but not as absurdly.
+
+  The secret sauce involves things like hashing and shadow-bitmapping,
+  those intesested can look in the source code for "SRW0814"
+  preprocessor symbols in the fasthenry files, and "BUILDHASH" and
+  "BITFIELD" preprocessor symbols in the Sparse package and read the
+  comments.  The key improvements were in the Sparse package, which
+  does not scale well to large matrix size, large being about 27000 in
+  this case.
+
+  Also, the output to Matlab option should work now, on any platform. 
+  Previously, it would only work on 32-bit SPARC machines due to 1)
+  integer size issues (broken on 64-bit systems) and 2) an obscure
+  variable in the source code needs to be reset to support Intel, and
+  this was simply overlooked.  The endian-ness is now auto-detected
+  so there is no variable to set anymore.
+
+  The documentation has been converted to PDF, but the original
+  PostScript files can be found in the old_ps directory.
+  
+** 8-25-2014 Changes:
+
+  Imported the modified indexing of the Jimag/Jreal/Jmag files from
+  FastHenry2 code from FastFieldSolvers.com.  Output from
+
+    fasthenry examples/together.inp -d grids -x trace1
+
+  (for example) now closely matches the output from FastHenry2 with
+  the same input.
+
+** 9-28-2015 Changes:
+
+  Fixed MinGW compilation.  I don't think that the port to MinGW was
+  ever complete, and it was actually building with Cygwin.  The
+  present release alters resusage.h for MinGW compatibility, and adds
+  a Makefile tweak.
+
+  To build for MinGW, you must either hand-edit
+  src/fasthenry/Makefile, or run "config mingw".  There is a small
+  change to the CFLAGS required.
+
+** 11-9-2015 Changes:
+
+  Back in 2003, MIT re-released FastHenry under the "new" MIT license,
+  which was far more open-source friendly than the original 1996
+  license.  This "wr" branch continued to carry the original license
+  language, unil now.  There are no code changes in this release, only
+  the licensing info in the source files has been updated or added.
+
+** 9-9-2019 Changes:  fasthenry-3.0.14
+
+  Updated/reorganized the examples.
+
+  Moved the Sparse package out of src/fasthenry and into src.  Added
+  an interface layer between the linear algebra calls (and library)
+  and FastHenry.  Added interfaces to Sparse, KLU (SuiteSparse) and
+  Intel MKS sparse matrix packages, as illustrations.  One can now
+  relatively easily adapt the preconditioner to use a third-party
+  linear algebra package, for possible performance gains.
+  
+  *****
+  * The Intel/DSS support is not included in this release, as it was
+  * contributed by a third party and has not been cleared for release.
+  *****
+
+  Use a real matrix for the preconditioner instead of complex when
+  possible (lossless superconductors only).  This may improve
+  performance.
+
+  The default is to build using the Sparse package, except when
+  building under the XicTools framework, where KLU is the default.
+  To build using one of the alternative packages:
+  1.  Install the alternative package (SuiteSparse or Intel MKL).
+  2.  Modify the mk_klu.inc or mk_dss.inc files in src/fasthenry
+      so that the paths correspond to your installation location.
+  3.  Build by giving one of
+      make SOLVER=KLU_SOLVER all
+      make SOLVER=DSS_SOLVER all
+      Note that you can make different versions, but you will need
+      to give "make clean" before making a new version.
+
+** 3-28-2020 Changes:  fasthenry-3.0.15
+
+  Added the MIT original Latex manual files to the doc/old_ps directory,
+  for preservation.
+
+** 3-30-2020 Changes:  fasthenry-3.0.16
+
+  Updated the Windows packager (in msw_package).  Calls inno-5.5.9,
+  now includes local utod.exe unix to dos line termination translator.
+  Added structure and scripts in packaged examples.
+
+** 6-28-2020 Changes:  fasthenry-3.0.17
+
+  Added a new hashing scheme for building the preconditioner matrix. 
+  Presently, this applies only when using KLU and DSS.  For larger
+  problems, this can substantially reduce run time.  For example, for
+  the noname.inp example using KLU, preconditioner formation is
+  reduced to 16 from 259 seconds.
+
+  Intel MKL DSS support has returned.
+
+  NOTE:  If you care about fast results, use KLU or DSS.  When
+  FastHenry is built under XicTools, it automatically links KLU.
+
+** 7-10-2020 Changes:  fasthenry-3.0.18
+
+  Refactored timing calls, previous approach would not build under
+  gcc-10.  Some updates of hashing code for possible slight speed
+  improvement when building preconditioner.
+
+** 7-17-2020 Changes:  fasthenry-3.0.19
+
+  Further changes to timing system, fix error in reported GMRES run
+  time.  Print preconditioner build stats when using "seg" and "diag".
+
+** 11-19-2020 Changes:  fasthenry-3.0.20
+
+  New input keyword:  tau
+  This applies to non-superconductors.  It is the relaxation time
+  as used in the Drude model of an electron gas.  In effect, the
+  internal value of rho = 1/sigma becomes
+
+    rho = 1/sigma + j*omega*tau/sigma
+
+  For large enough tau, there will be a significant contribution from
+  kinetic inductance.  This can happen at low temperatures for
+  elemental resistor material.  See, e.g.,
+
+    Tolpygo et al, "Properties of Unshunted and Resistively Shunted
+    Nb/AlOx-Al/Nb Josephson Junctions With Critical Current Densities
+    From 0.1 ro 1 mA/um^2", IEEE Trans.  Appl.  Supercon.  vol.27, no. 
+    4, June 2017.
+
+  Note that tau is numerically equal to per-square inductance over
+  resistance.  In the case of Mo resistors (from the paper) at 4K,
+  tau measures to be about 0.5pS.
+
+** 11-30-2020 Changes:  fasthenry-3.0.21
+
+  Code polishing for speeding up computations and reducing memory use. 
+  Will use AVX instructions if using gcc-4.4 or later on Intel
+  processors (parallel operations).  Again, if you want speed, use KLU
+  (SuiteSparse) and *not* the default Sparse linear algebra package. 
+
+  AVX support is disabled by default under Windows, as apparently
+  there is a stack alignment bug that can case seg faults.  However,
+  it seems to work ok under mingw64 gcc-10.2, at least it ran the
+  examples without faulting.  You can try your luck:  to enable, edit
+  src/fasthenry/mk_syscfg.inc after running "./config mingw".
+
+** 01-02-2022 Changes:  fasthenry-3.0.22
+
+  Restrict AVX use to x86_64.  To do: support arm64.
+
+** 01-05-2023 Changes:  fasthenry-3.0.23
+
+  Revise Makefile to avoid writing files if no rebuild is needed.
+  Fix compiler warnings.
+  Fixed bug: The program was being built with AVX when present on
+  non-Windows x86_64 machimes, but the actual parallel code was
+  not being used.
+  Warning:  If built with AVX but run on a machine without AVX
+  support, the program will crash.  Rebuild after modifying
+  src/fasthenry/mk_syscfg.inc per instructions to build without AVX.
+
+** 03-14-2024 Changes:  fasthenry-3.0.24
+
+  Refactor so that all compiler warnings from gcc -Wall are fixed. 
+  Most of these are for variables that are declared or assigned but
+  not used.  There were many warnings about character array
+  subscripts, which were changed to integers.  There was one
+  type-checking error that was reported by the gentoo Linux packaging
+  group involving inconsistent definitions of a three-dimensional
+  array.  Overall, no user-visible changes but things are cleaner on
+  the inside.
+
+--------------------- Superconductivity Support -------------------------
+
+This version of fasthenry has been modified to support superconducting
+segments and ground planes.  The analysis used is based on the London
+equations and the two-fluid model.  Both reactive and lossy components
+of the superconductor complex conductivity are employed in obtaining
+the impedance matrix.
+
+Theory
+------
+ *
+ *    In normal metal:     (1)  del X del X H = -i*omega*mu*sigma * H
+ *    In superconductor:   (2)  del X del X H = (1/lambda)^2 * H
+ *
+ *    In fasthenry, (1) is solved, so the game is to replace sigma in
+ *    (1) with a complex variable that includes and reduces to (2).
+ *    We choose
+ *
+ *      sigma_prime = sigma + i/(omega*mu*lambda^2)
+ *
+ *    Then, using sigma_prime in (1) rather than sigma, one obtains
+ *    an expression that reduces to (2) as omega -> 0,  yet retains
+ *    properties of (1).  This is the two-fluid model, where the
+ *    sigma in sigma_prime represents the conductivity due to unpaired
+ *    electrons.
+ *
+ *    Since sigma_prime blows up at omega = 0, we work with the
+ *    impedance, which we take as z = r1 + i*omega*r2 = i/sigma_prime.
+ *    The r1 and r2 variables are thus
+ *
+ *           (3) r1 =    sigma*(omega*mu*lambda^2)^2
+ *                    --------------------------------
+ *                    (sigma*omega*mu*lambda^2)^2 + 1
+ *
+ *           (4) r2 =           mu*lambda^2
+ *                    --------------------------------
+ *                    (sigma*omega*mu*lambda^2)^2 + 1
+
+
+Operation
+---------
+
+The input and output formats of fasthenry are unchanged, with the
+exception of a new input parameter "lambda".  The lambda parameter is
+the London penetration depth specified in the units in use, and can
+appear in segment or ground plane specification lines, and .default
+lines.  When lambda is given and nonzero, the element is analyzed as a
+superconductor, and the sigma parameter defaults to zero (not the
+conductivity of copper, as in the normal case).
+
+If, however, a default sigma is specified, or a sigma specification
+appears in the segment or ground plane line, that sigma will be used. 
+The proper value for sigma is the sigma 1 from the two-fluid model,
+which is the normal sigma times the ratio of the quasiparticle and
+total carrier densities, a temperature dependent quantity.  For most
+applications, the loss is small enough to be considered negligible, so
+sigma need not be specified.
+
+To obtain accurate results, a sufficient number of filaments must
+exist in regions of high field gradient.  Although the ground plane
+construct is supported, experience has shown that its use often leads
+to inaccurate results presumably due to insufficient filamentation. 
+Some of the new fasthenry-3.0 features may solve this problem, but
+this has not been tested.  It may prove necessary to implement ground
+planes with segments.
+
+The large filament count consumes much memory.  This program benefits
+from cpu power and memory.  Despite its name, be prepared to wait for
+results.
+
+Compilation is as described in the fasthenry documentation.  If for
+some reason the superconductivity support is to be deleted, the
+mulGlobal.h file should be edited to set "SUPERCON" to "OFF".
+
+
+Interpretation of Results
+-------------------------
+
+Fasthenry computes an impedance matrix, which is written to a file
+named "Zc.mat" when the run is complete.  This gives the inductance
+values indirectly, through the imaginary parts divided by the radian
+frequency (2PI times the value given for ".freq").  In order to
+compute inductance, the specified frequency, i.e., the value provided
+for the ".freq" parameter in the input file, must be nonzero.  For
+superconductors, with sigma equal to zero, the inductances should be
+independent of frequency, so the actual frequency chosen is not
+important.  If the frequency is set to zero, FastHenry will compute
+the resistance of the conductors only, which will be zero for
+superconductors.
+

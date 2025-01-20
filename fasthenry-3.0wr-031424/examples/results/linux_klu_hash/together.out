@@ -1,0 +1,68 @@
+Warning: ground plane node nbin coincident with another node
+Warning: ground plane node nbout coincident with another node
+Running FastHenry 3.0.15 (xictools)
+Using SuiteSparse linear algebra package by Tim Davis, Texas A&M.
+  Date: Sun Jun 28 13:07:20 2020
+  Host: frost
+Solution technique: ITERATIVE
+Matrix vector product method: MULTIPOLE
+  Order of expansion: 2
+Preconditioner: ON
+Error tolerance: 0.001
+Reading from file: ./input/together.inp
+Title:
+*Solid plane with two traces above it
+
+all lengths multiplied by 2.54e-05 to convert to meters
+Total number of filaments before multipole refine: 432
+Total number of filaments after multipole refine: 438
+
+Multipole Summary
+  Expansion order: 2
+  Number of partitioning levels: 3
+  Total number of filaments: 438
+Percentage of multiplies done by multipole: 100%
+Scanning graph to find fundamental circuits...
+Number of Groundplanes : 1 
+Number of filaments:        438
+Number of segments:         438
+Number of nodes:            241
+Number of meshes:           202
+          ----from tree:                   2 
+          ----from planes: (before holes)  200 
+Number of conductors:         2   (rows of matrix in Zc.mat) 
+Number of columns:            2   (columns of matrix in Zc.mat) 
+Number of real nodes:       239
+filling M...
+filling R and L...
+Total Memory allocated: 1593 kilobytes
+Frequency = 0.1
+Forming sparse matrix preconditioner.
+Precond build time 0.000344
+Reorder and factor time 0.00052
+conductor 0 from node nb1
+Calling gmres...
+1 2 
+conductor 1 from node na1
+Calling gmres...
+1 2 
+Frequency = 1e+19
+Forming sparse matrix preconditioner.
+Precond build time 0.000287
+conductor 0 from node nb1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 
+conductor 1 from node na1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 
+
+All impedance matrices dumped to file Zc.mat
+
+Times:  Read geometry   0
+        Multipole setup 0.011484
+        Scanning graph  1.1e-05
+        Form A M and Z  7.6e-05
+        form M'ZM       1.4e-05
+        Form precond    0.001687
+        GMRES time      0.01929
+   Total:               0.032562

@@ -1,0 +1,69 @@
+Warning: While reading in a decay_rect contact:
+rectangle y width <= max cell width. Will set max_cell = 0.99 * rect_width
+Note: Almost no gradual decay in y direction will result
+contact decay_rect (0,0,0,50,2000,30,3000,500,3000)
+Running FastHenry 3.0wr (29Sep96, mod 090919)
+Using SPARSE linear algebra package by Ken Kundert, UC Berkeley.
+  Date: Mon Sep  9 19:42:08 2019
+  Host: frost
+Solution technique: ITERATIVE
+Matrix vector product method: MULTIPOLE
+  Order of expansion: 2
+Preconditioner: ON
+Error tolerance: 0.001
+Reading from file: ./input/3d_example2_coarse.inp
+Title:
+* a M5 line (26um wide, 1um thick) over Si substrate 8um below, sigma=2.6e7
+
+all lengths multiplied by 1e-06 to convert to meters
+Total number of filaments before multipole refine: 1414
+DivideSegs: Warning: tried to divide an indivisable segment.
+  Segment length: 0.000750,  maximum allowed length: 0.000379  The segment is probably part of a ground plane.
+  If so, decrease the partitioning level by 1 or refine the ground plane
+DivideSegs: Warning: tried to divide an indivisable segment.
+  Segment length: 0.000375,  maximum allowed length: 0.000189  The segment is probably part of a ground plane.
+  If so, decrease the partitioning level by 1 or refine the ground plane
+Total number of filaments after multipole refine: 1458
+
+Multipole Summary
+  Expansion order: 2
+  Number of partitioning levels: 4
+  Total number of filaments: 1458
+Percentage of multiplies done by multipole: 100%
+Scanning graph to find fundamental circuits...
+Number of Groundplanes : 1 
+Number of filaments:       1458
+Number of segments:         482
+Number of nodes:            955
+Number of meshes:          1189
+          ----from tree:                   1 
+          ----from planes: (before holes)  212 
+Number of conductors:         1   (rows of matrix in Zc.mat) 
+Number of columns:            1   (columns of matrix in Zc.mat) 
+Number of real nodes:       954
+filling M...
+filling R and L...
+Total Memory allocated: 9140 kilobytes
+***First frequency is zero. Only the DC case will be run.***
+Warning: First frequency is zero, but -sludecomp was not specified.
+      Use this setting to save time and memory.
+Frequency = 0
+Forming sparse matrix preconditioner.
+ 9.8 19.6 29.3 39.1 48.9 58.7 68.5 78.3 88.0 97.8
+Precond build time 0.002267
+ 9.9 19.8 29.8 39.7 49.6 59.5 69.5 79.4 89.3 99.2
+Reorder and factor time 0.00439
+conductor 0 from node ns1
+Calling gmres...
+1 
+
+All impedance matrices dumped to file Zc.mat
+
+Times:  Read geometry   0.000314
+        Multipole setup 0.450733
+        Scanning graph  7e-05
+        Form A M and Z  0
+        form M'ZM       0
+        Form precond    0.006669
+        GMRES time      0.011716
+   Total:               0.469502

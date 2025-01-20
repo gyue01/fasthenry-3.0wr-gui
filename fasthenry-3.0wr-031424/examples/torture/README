@@ -1,0 +1,2 @@
+The bfh.inp file takes about 1/2 hour to run on the Sparse FastHenry,
+80 seconds for the KLU version, on my "typical" Linux box.

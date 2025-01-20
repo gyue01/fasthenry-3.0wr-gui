@@ -1,0 +1,2 @@
+# DEC Alpha.
+CFLAGS = -O -DFOUR -DDEC -Olimit 2000 -DALPHA

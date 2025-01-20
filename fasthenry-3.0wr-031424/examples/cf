@@ -1,0 +1,24 @@
+#! /bin/sh
+
+# Compare generated matrices to saved results.
+# Usage: ./cf [matfile [...]]
+
+# Reference data location.
+refdir=./results/linux_sparse
+
+if [ $# -gt 0 ]; then
+    while [ $# -gt 0 ]; do
+        echo "------ $1 --------"
+        diff $1 $refdir/$1
+        shift
+    done
+    exit 0
+fi
+
+# No arguments, compare everything is sight.
+
+outdir=./output
+for a in $outdir/*.mat; do
+    echo "------ $a --------"
+    diff $a $refdir/`basename $a`
+done

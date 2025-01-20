@@ -1,0 +1,56 @@
+Running FastHenry 3.0wr (29Sep96, mod 090919)
+Using SPARSE linear algebra package by Ken Kundert, UC Berkeley.
+  Date: Mon Sep  9 19:42:53 2019
+  Host: frost
+Solution technique: ITERATIVE
+Matrix vector product method: MULTIPOLE
+  Order of expansion: 2
+Preconditioner: ON
+Error tolerance: 0.001
+Reading from file: ./input/hole.inp
+Title:
+*This is the input deck to calculate effective inductance
+
+all lengths multiplied by 1 to convert to meters
+Total number of filaments before multipole refine: 724
+Total number of filaments after multipole refine: 724
+
+Multipole Summary
+  Expansion order: 2
+  Number of partitioning levels: 3
+  Total number of filaments: 724
+Percentage of multiplies done by multipole: 100%
+Scanning graph to find fundamental circuits...
+Number of Groundplanes : 1 
+Number of filaments:        724
+Number of segments:         724
+Number of nodes:            441
+Number of meshes:           402
+          ----from tree:                   2 
+          ----from planes: (before holes)  400 
+Number of conductors:         1   (rows of matrix in Zc.mat) 
+Number of columns:            1   (columns of matrix in Zc.mat) 
+Number of real nodes:       441
+filling M...
+Exact number of meshes after ground plane holes removed: 334
+filling R and L...
+Total Memory allocated: 2754 kilobytes
+Frequency = 2e+06
+Forming sparse matrix preconditioner.
+Precond build time 0.000303
+ 9.9 19.8 29.6 39.5 49.4 59.3 69.2 79.0 88.9 98.8
+Reorder and factor time 0.006986
+conductor 0 from node ng118_8
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 
+
+All impedance matrices dumped to file Zc.mat
+
+Times:  Read geometry   0.000954
+        Multipole setup 0.016587
+        Scanning graph  3.9e-05
+        Form A M and Z  0
+        form M'ZM       0
+        Form precond    0.007294
+        GMRES time      0.020182
+   Total:               0.045056

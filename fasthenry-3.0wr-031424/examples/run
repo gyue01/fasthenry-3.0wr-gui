@@ -1,0 +1,29 @@
+#! /bin/sh
+
+# Run the example .inp files.
+# Usage:  ./run [inpfile [...]]
+
+fasthenry=../bin/fasthenry
+output=./output
+if [ ! -d $output ]; then
+    mkdir $output
+fi
+
+if [ $# -gt 0 ]; then
+    while [ $# -gt 0 ]; do
+        $fasthenry $1 2>&1 | tee $output/`basename $1 inp`out
+        mv Zc.mat $output/`basename $1 inp`mat
+        shift
+    done
+    exit 0
+fi
+
+# If no argument, run all examples.
+
+input=./input
+
+for a in $input/*.inp; do
+    $fasthenry $a 2>&1 | tee $output/`basename $a inp`out
+    mv Zc.mat $output/`basename $a inp`mat
+done
+

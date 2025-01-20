@@ -1,0 +1,23 @@
+
+input
+This contains a number of example FastHenry input files and other
+examples.
+
+run
+This script, with no arguments, will run the examples in ./input,
+placing results in a directory named "output" which will be created
+if necessary.  Arguments can be paths to FastHenry input files,
+which will be run, and results saved in ./output.
+
+cf
+This script, with no arguments, will compare the inductance matrix
+files found in ./output to saved results in ./results/linux_sparse.
+
+results
+Saved results from the examples for each linear algebra package
+for which such data exists.
+
+torture
+Another input file that takes a long time to run when using the
+Sparse solver.
+

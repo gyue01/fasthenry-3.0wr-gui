@@ -1,0 +1,64 @@
+Running FastHenry 3.0.15 (xictools)
+Using SuiteSparse linear algebra package by Tim Davis, Texas A&M.
+  Date: Sun Jun 28 13:07:32 2020
+  Host: frost
+Solution technique: ITERATIVE
+Matrix vector product method: MULTIPOLE
+  Order of expansion: 2
+Preconditioner: ON
+Error tolerance: 0.001
+Reading from file: ./input/tree_sample.inp
+Title:
+*  A fasthenry input file for a nonuniform ground plane
+
+all lengths multiplied by 1 to convert to meters
+Total number of filaments before multipole refine: 56
+DivideSegs: Warning: tried to divide an indivisable segment.
+  Segment length: 0.250000,  maximum allowed length: 0.126250  The segment is probably part of a ground plane.
+  If so, decrease the partitioning level by 1 or refine the ground plane
+Total number of filaments after multipole refine: 56
+
+Multipole Summary
+  Expansion order: 2
+  Number of partitioning levels: 3
+  Total number of filaments: 56
+No expansions at level 3 (lowest)
+Percentage of multiplies done by multipole: 100%
+Scanning graph to find fundamental circuits...
+Number of Groundplanes : 1 
+Number of filaments:         56
+Number of segments:          56
+Number of nodes:            116
+Number of meshes:            25
+          ----from tree:                   3 
+          ----from planes: (before holes)  22 
+Number of conductors:         3   (rows of matrix in Zc.mat) 
+Number of columns:            3   (columns of matrix in Zc.mat) 
+Number of real nodes:       116
+filling M...
+filling R and L...
+Total Memory allocated: 212 kilobytes
+Frequency = 1
+Forming sparse matrix preconditioner.
+Precond build time 4.1e-05
+Reorder and factor time 6.8e-05
+conductor 0 from node ng1_pseudo_2
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 
+conductor 1 from node ng1_pseudo_0
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 
+conductor 2 from node ng1_pseudo_0
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 
+
+All impedance matrices dumped to file Zc.mat
+
+Times:  Read geometry   0.000398
+        Multipole setup 0.005992
+        Scanning graph  8e-06
+        Form A M and Z  2.6e-05
+        form M'ZM       1e-06
+        Form precond    0.00012
+        GMRES time      0.002214
+   Total:               0.008759

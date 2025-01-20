@@ -1,0 +1,56 @@
+Running FastHenry 3.0wr (29Sep96, mod 090919)
+Using SPARSE linear algebra package by Ken Kundert, UC Berkeley.
+  Date: Mon Sep  9 19:49:05 2019
+  Host: frost
+Solution technique: ITERATIVE
+Matrix vector product method: MULTIPOLE
+  Order of expansion: 2
+Preconditioner: ON
+Error tolerance: 0.001
+Reading from file: ./input/sline2.inp
+Title:
+* #2 superconducting microstripline, high impedance
+
+all lengths multiplied by 1e-06 to convert to meters
+Total number of filaments before multipole refine: 100
+Total number of filaments after multipole refine: 800
+
+Multipole Summary
+  Expansion order: 2
+  Number of partitioning levels: 3
+  Total number of filaments: 800
+Percentage of multiplies done by multipole: 100%
+Scanning graph to find fundamental circuits...
+Number of Groundplanes : 0 
+Number of filaments:        800
+Number of segments:          32
+Number of nodes:             36
+Number of meshes:           771
+          ----from tree:                   3 
+          ----from planes: (before holes)  0 
+Number of conductors:         1   (rows of matrix in Zc.mat) 
+Number of columns:            1   (columns of matrix in Zc.mat) 
+Number of real nodes:        31
+filling M...
+filling R and L...
+Total Memory allocated: 3524 kilobytes
+Frequency = 1e+09
+Forming sparse matrix preconditioner.
+All segments are lossless superconductors.
+Precond build time 0.03088
+ 10.0 20.0 30.0 39.9 49.9 59.9 69.9 79.9 89.9 99.9
+Reorder and factor time 0.541822
+conductor 0 from node n1
+Calling gmres...
+1 2 3 4 
+
+All impedance matrices dumped to file Zc.mat
+
+Times:  Read geometry   0.00025
+        Multipole setup 0.089339
+        Scanning graph  1e-05
+        Form A M and Z  0.00014
+        form M'ZM       1e-06
+        Form precond    0.572713
+        GMRES time      0.013832
+   Total:               0.676285
