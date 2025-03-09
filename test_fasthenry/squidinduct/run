@@ -1,0 +1,5 @@
+!#/bin/bash
+gcc squid.c
+./a.out
+../../fasthenry-3.0wr-031424/bin/fasthenry squid_0.inp
+cat Zc.mat
