@@ -1,0 +1,13 @@
+.unit um
+.default z=0 sigma=58 w=0.2 h=0.1
+N1 x=0 y=0
+N2 x=0 y=1
+N3 x=1 y=1
+N4 x=-1 y=1
+
+E1 N1 N2
+E2 N3 N4
+
+.external N1 N3
+.freq fmin=1 fmax=1 ndec=1
+.end

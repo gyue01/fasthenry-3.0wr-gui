@@ -1,0 +1,387 @@
+Running FastHenry 3.0wr (29Sep96, mod 031424)
+Using SPARSE linear algebra package by Ken Kundert, UC Berkeley.
+  Date: Sun Mar  9 03:22:04 2025
+  Host: 5dd13cbd4f2c
+Solution technique: ITERATIVE
+Matrix vector product method: MULTIPOLE
+  Order of expansion: 2
+Preconditioner: ON
+Error tolerance: 0.001
+Reading from file: ./input/pin-con7.inp
+Title:
+***PACKAGE INDUCTANCE - 35 of 68 pins***
+
+all lengths multiplied by 2.54e-05 to convert to meters
+Total number of filaments before multipole refine: 735
+Total number of filaments after multipole refine: 1680
+
+Multipole Summary
+  Expansion order: 2
+  Number of partitioning levels: 3
+  Total number of filaments: 1680
+Percentage of multiplies done by multipole: 100%
+Scanning graph to find fundamental circuits...
+Number of Groundplanes : 0 
+Number of filaments:       1680
+Number of segments:          80
+Number of nodes:             87
+Number of meshes:          1607
+          ----from tree:                   7 
+          ----from planes: (before holes)  0 
+Number of conductors:         7   (rows of matrix in Zc.mat) 
+Number of columns:            7   (columns of matrix in Zc.mat) 
+Number of real nodes:        87
+filling M...
+filling R and L...
+Total Memory allocated: 11178 kilobytes
+Frequency = 1
+Forming sparse matrix preconditioner.
+Block A runtime=0.00159, block B runtime=0.009938
+
+Precond build time 0.012004, matsize 0, nonzero 0 recalls 0
+ 10.0 19.9 29.9 39.8 49.8 59.7 69.7 79.7 89.6 99.6
+Reorder and factor time 0.14338
+conductor 0 from node n21end1
+Calling gmres...
+1 2 3 
+conductor 1 from node n20end1
+Calling gmres...
+1 2 3 
+conductor 2 from node n19end1
+Calling gmres...
+1 2 3 
+conductor 3 from node n18end1
+Calling gmres...
+1 2 3 
+conductor 4 from node n17end1
+Calling gmres...
+1 2 3 
+conductor 5 from node n16end1
+Calling gmres...
+1 2 3 
+conductor 6 from node n15end1
+Calling gmres...
+1 2 3 
+Frequency = 10
+Forming sparse matrix preconditioner.
+Block A runtime=0.001741, block B runtime=0.005886
+
+Precond build time 0.008145, matsize 0, nonzero 0 recalls 0
+conductor 0 from node n21end1
+Calling gmres...
+1 2 3 
+conductor 1 from node n20end1
+Calling gmres...
+1 2 3 
+conductor 2 from node n19end1
+Calling gmres...
+1 2 3 
+conductor 3 from node n18end1
+Calling gmres...
+1 2 3 
+conductor 4 from node n17end1
+Calling gmres...
+1 2 3 
+conductor 5 from node n16end1
+Calling gmres...
+1 2 3 
+conductor 6 from node n15end1
+Calling gmres...
+1 2 3 
+Frequency = 100
+Forming sparse matrix preconditioner.
+Block A runtime=0.001776, block B runtime=0.005833
+
+Precond build time 0.008019, matsize 1, nonzero 0 recalls 0
+conductor 0 from node n21end1
+Calling gmres...
+1 2 3 
+conductor 1 from node n20end1
+Calling gmres...
+1 2 3 
+conductor 2 from node n19end1
+Calling gmres...
+1 2 3 
+conductor 3 from node n18end1
+Calling gmres...
+1 2 3 
+conductor 4 from node n17end1
+Calling gmres...
+1 2 3 
+conductor 5 from node n16end1
+Calling gmres...
+1 2 3 
+conductor 6 from node n15end1
+Calling gmres...
+1 2 3 
+Frequency = 1000
+Forming sparse matrix preconditioner.
+Block A runtime=0.001714, block B runtime=0.006264
+
+Precond build time 0.008356, matsize 1, nonzero 0 recalls 0
+conductor 0 from node n21end1
+Calling gmres...
+1 2 3 
+conductor 1 from node n20end1
+Calling gmres...
+1 2 3 
+conductor 2 from node n19end1
+Calling gmres...
+1 2 3 
+conductor 3 from node n18end1
+Calling gmres...
+1 2 3 
+conductor 4 from node n17end1
+Calling gmres...
+1 2 3 
+conductor 5 from node n16end1
+Calling gmres...
+1 2 3 
+conductor 6 from node n15end1
+Calling gmres...
+1 2 3 
+Frequency = 10000
+Forming sparse matrix preconditioner.
+Block A runtime=0.001701, block B runtime=0.005807
+
+Precond build time 0.007921, matsize 1, nonzero 0 recalls 0
+conductor 0 from node n21end1
+Calling gmres...
+1 2 3 4 
+conductor 1 from node n20end1
+Calling gmres...
+1 2 3 4 
+conductor 2 from node n19end1
+Calling gmres...
+1 2 3 4 
+conductor 3 from node n18end1
+Calling gmres...
+1 2 3 4 
+conductor 4 from node n17end1
+Calling gmres...
+1 2 3 4 
+conductor 5 from node n16end1
+Calling gmres...
+1 2 3 4 
+conductor 6 from node n15end1
+Calling gmres...
+1 2 3 4 
+Frequency = 100000
+Forming sparse matrix preconditioner.
+Block A runtime=0.001767, block B runtime=0.005814
+
+Precond build time 0.007961, matsize 1, nonzero 0 recalls 0
+conductor 0 from node n21end1
+Calling gmres...
+1 2 3 4 5 
+conductor 1 from node n20end1
+Calling gmres...
+1 2 3 4 5 
+conductor 2 from node n19end1
+Calling gmres...
+1 2 3 4 5 
+conductor 3 from node n18end1
+Calling gmres...
+1 2 3 4 5 
+conductor 4 from node n17end1
+Calling gmres...
+1 2 3 4 5 
+conductor 5 from node n16end1
+Calling gmres...
+1 2 3 4 5 
+conductor 6 from node n15end1
+Calling gmres...
+1 2 3 4 5 
+Frequency = 1e+06
+Forming sparse matrix preconditioner.
+Block A runtime=0.001741, block B runtime=0.006114
+
+Precond build time 0.008274, matsize 1, nonzero 0 recalls 0
+conductor 0 from node n21end1
+Calling gmres...
+1 2 3 4 5 6 7 
+conductor 1 from node n20end1
+Calling gmres...
+1 2 3 4 5 6 7 
+conductor 2 from node n19end1
+Calling gmres...
+1 2 3 4 5 6 7 
+conductor 3 from node n18end1
+Calling gmres...
+1 2 3 4 5 6 7 
+conductor 4 from node n17end1
+Calling gmres...
+1 2 3 4 5 6 7 
+conductor 5 from node n16end1
+Calling gmres...
+1 2 3 4 5 6 7 
+conductor 6 from node n15end1
+Calling gmres...
+1 2 3 4 5 6 7 
+Frequency = 1e+07
+Forming sparse matrix preconditioner.
+Block A runtime=0.0017, block B runtime=0.005716
+
+Precond build time 0.00787, matsize 1, nonzero 0 recalls 0
+conductor 0 from node n21end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 
+conductor 1 from node n20end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 
+conductor 2 from node n19end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 
+conductor 3 from node n18end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 
+conductor 4 from node n17end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 
+conductor 5 from node n16end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 
+conductor 6 from node n15end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 
+Frequency = 1e+08
+Forming sparse matrix preconditioner.
+Block A runtime=0.001981, block B runtime=0.006571
+
+Precond build time 0.009023, matsize 1, nonzero 0 recalls 0
+conductor 0 from node n21end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 
+conductor 1 from node n20end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 
+conductor 2 from node n19end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 
+conductor 3 from node n18end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 
+conductor 4 from node n17end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 
+conductor 5 from node n16end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 
+conductor 6 from node n15end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 
+Frequency = 1e+09
+Forming sparse matrix preconditioner.
+Block A runtime=0.001715, block B runtime=0.005795
+
+Precond build time 0.00792, matsize 1, nonzero 0 recalls 0
+conductor 0 from node n21end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 
+conductor 1 from node n20end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 
+conductor 2 from node n19end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 
+conductor 3 from node n18end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 
+conductor 4 from node n17end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 
+conductor 5 from node n16end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 
+conductor 6 from node n15end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 
+Frequency = 1e+10
+Forming sparse matrix preconditioner.
+Block A runtime=0.001701, block B runtime=0.005835
+
+Precond build time 0.007941, matsize 1, nonzero 0 recalls 0
+conductor 0 from node n21end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 
+conductor 1 from node n20end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 
+conductor 2 from node n19end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 
+conductor 3 from node n18end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 
+conductor 4 from node n17end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 
+conductor 5 from node n16end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 
+conductor 6 from node n15end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 
+Frequency = 1e+11
+Forming sparse matrix preconditioner.
+Block A runtime=0.001784, block B runtime=0.006121
+
+Precond build time 0.008362, matsize 1, nonzero 0 recalls 0
+conductor 0 from node n21end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 
+conductor 1 from node n20end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 
+conductor 2 from node n19end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 
+conductor 3 from node n18end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 
+conductor 4 from node n17end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 
+conductor 5 from node n16end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 
+conductor 6 from node n15end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 
+Frequency = 1e+12
+Forming sparse matrix preconditioner.
+Block A runtime=0.001815, block B runtime=0.006591
+
+Precond build time 0.008952, matsize 1, nonzero 0 recalls 0
+conductor 0 from node n21end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 
+conductor 1 from node n20end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 
+conductor 2 from node n19end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 
+conductor 3 from node n18end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 
+conductor 4 from node n17end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 
+conductor 5 from node n16end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 
+conductor 6 from node n15end1
+Calling gmres...
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 
+
+All impedance matrices dumped to file Zc.mat
+
+Times:  Read geometry   0.000341
+        Multipole setup 0.714515
+        Scanning graph  1.2e-05
+        Form A M and Z  0.000207
+        form M'ZM       8.7e-05
+        Form precond    0.328615
+        GMRES time      4.45974
+   Total:               5.50352
