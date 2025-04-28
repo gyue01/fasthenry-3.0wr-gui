@@ -17,6 +17,11 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_CheckVersionButton_clicked();
+
+    void on_CheckVersionButton_2_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
