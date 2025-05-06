@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QProcess>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -16,11 +17,15 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    QProcess *commandline;
+    void run_command(QString command, QStringList parameters);
+
 
 private slots:
-    void on_CheckVersionButton_clicked();
-
-    void on_CheckVersionButton_2_clicked();
+    void StartDockerButton_clicked();
+    void CheckVersionButton_clicked();
+    void BuildImageButton_clicked();
+    void CommandOutputReady();
 
 private:
     Ui::MainWindow *ui;

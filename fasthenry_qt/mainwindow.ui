@@ -79,7 +79,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="CheckVersionButton_2">
+   <widget class="QPushButton" name="StartDockerButton">
     <property name="geometry">
      <rect>
       <x>580</x>
@@ -90,6 +90,19 @@
     </property>
     <property name="text">
      <string>Start docker desktop</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="BuildImageButton">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>190</y>
+      <width>151</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Build Image</string>
     </property>
    </widget>
   </widget>

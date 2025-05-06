@@ -8,41 +8,45 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    connect(ui->CheckVersionButton,&QPushButton::clicked, this, &MainWindow::CheckVersionButton_clicked);
+    connect(ui->StartDockerButton,&QPushButton::clicked, this, &MainWindow::StartDockerButton_clicked);
+    connect(ui->BuildImageButton,&QPushButton::clicked, this, &MainWindow::BuildImageButton_clicked);
+    commandline = new QProcess(this);
+    commandline->setProcessChannelMode(QProcess::MergedChannels);
+    connect(commandline, &QProcess::readyReadStandardOutput,this, &MainWindow::CommandOutputReady);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete commandline;
 }
 
-void MainWindow::on_CheckVersionButton_clicked()
+void MainWindow::CommandOutputReady()
 {
-    QProcess process;
-    QString command = "docker";
-    QStringList parameters = QStringList() << "-v";
+    ui->OutputBrowser->insertPlainText(commandline->readAllStandardOutput());
+}
 
-    process.start(command, parameters);
-    process.waitForFinished(-1); // Wait indefinitely for the process to finish
-    QString output = "Output:\n"+process.readAllStandardOutput()
-                     +"Error:\n"+process.readAllStandardError();
-
+void MainWindow::run_command(QString command, QStringList parameters)
+{
     ui->InputBrowser->setText(command+" "+parameters.join(" "));
-    ui->OutputBrowser->setText(output);
+    commandline->start(command, parameters);
+}
+
+void MainWindow::CheckVersionButton_clicked()
+{
+    run_command("docker", QStringList() << "-v");
 }
 
 
-void MainWindow::on_CheckVersionButton_2_clicked()
+void MainWindow::StartDockerButton_clicked()
 {
-    QProcess process;
-    QString command = "docker";
-    QStringList parameters = QStringList()<<"desktop"<<"start";
+    run_command("docker", QStringList()<<"desktop"<<"start");
+}
 
-    process.start(command, parameters);
-    process.waitForFinished(-1); // Wait indefinitely for the process to finish
-    QString output = "Output:\n"+process.readAllStandardOutput()
-                     +"Error:\n"+process.readAllStandardError();
 
-    ui->InputBrowser->setText(command+" "+parameters.join(" "));
-    ui->OutputBrowser->setText(output);
+void MainWindow::BuildImageButton_clicked()
+{
+    run_command("cmd", QStringList()<<"/c"<<"cd");
 }
 
