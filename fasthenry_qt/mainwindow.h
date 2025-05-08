@@ -26,6 +26,7 @@ private slots:
     void CheckVersionButton_clicked();
     void BuildImageButton_clicked();
     void CommandOutputReady();
+    void RunFasthenry_clicked();
 
 private:
     Ui::MainWindow *ui;

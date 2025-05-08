@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->CheckVersionButton,&QPushButton::clicked, this, &MainWindow::CheckVersionButton_clicked);
     connect(ui->StartDockerButton,&QPushButton::clicked, this, &MainWindow::StartDockerButton_clicked);
     connect(ui->BuildImageButton,&QPushButton::clicked, this, &MainWindow::BuildImageButton_clicked);
+    connect(ui->RunFasthenry,&QPushButton::clicked, this, &MainWindow::RunFasthenry_clicked);
     commandline = new QProcess(this);
     commandline->setProcessChannelMode(QProcess::MergedChannels);
     connect(commandline, &QProcess::readyReadStandardOutput,this, &MainWindow::CommandOutputReady);
@@ -29,7 +30,8 @@ void MainWindow::CommandOutputReady()
 
 void MainWindow::run_command(QString command, QStringList parameters)
 {
-    ui->InputBrowser->setText(command+" "+parameters.join(" "));
+    ui->OutputBrowser->insertPlainText("In:"+command+" "+parameters.join(" ")+"\n");
+    ui->OutputBrowser->insertPlainText("Out:");
     commandline->start(command, parameters);
 }
 
@@ -47,6 +49,10 @@ void MainWindow::StartDockerButton_clicked()
 
 void MainWindow::BuildImageButton_clicked()
 {
-    run_command("cmd", QStringList()<<"/c"<<"cd");
+    run_command("docker", QStringList()<<"build"<<"-t"<<"fasthenry_image"<<".");
 }
 
+void MainWindow::RunFasthenry_clicked()
+{
+    run_command("docker", QStringList()<<"run"<<"fasthenry_image"<<"/test/run.sh");
+}
