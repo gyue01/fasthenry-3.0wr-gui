@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>741</width>
-    <height>475</height>
+    <height>443</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -34,9 +34,9 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>140</y>
+      <y>130</y>
       <width>531</width>
-      <height>311</height>
+      <height>291</height>
      </rect>
     </property>
     <property name="verticalScrollBarPolicy">
@@ -82,7 +82,7 @@
     <property name="geometry">
      <rect>
       <x>580</x>
-      <y>190</y>
+      <y>220</y>
       <width>151</width>
       <height>24</height>
      </rect>
@@ -114,19 +114,38 @@
     <property name="geometry">
      <rect>
       <x>580</x>
-      <y>220</y>
+      <y>250</y>
       <width>151</width>
       <height>24</height>
      </rect>
     </property>
     <property name="toolTip">
-     <string>Build image from Dockerfile</string>
+     <string>Run fasthenry to process .inp file.</string>
     </property>
     <property name="whatsThis">
      <string>First generate Dockerfile then generate the image.</string>
     </property>
     <property name="text">
      <string>Run fasthenry</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="LoadInpFile">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>190</y>
+      <width>151</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>find and load .inp file, then prepare for fasthenry to process.</string>
+    </property>
+    <property name="whatsThis">
+     <string>First generate Dockerfile then generate the image.</string>
+    </property>
+    <property name="text">
+     <string>Load .inp file</string>
     </property>
    </widget>
   </widget>

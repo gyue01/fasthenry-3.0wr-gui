@@ -27,6 +27,7 @@ private slots:
     void BuildImageButton_clicked();
     void CommandOutputReady();
     void RunFasthenry_clicked();
+    void LoadInpFile_clicked();
 
 private:
     Ui::MainWindow *ui;
