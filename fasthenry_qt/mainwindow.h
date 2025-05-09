@@ -28,6 +28,7 @@ private slots:
     void CommandOutputReady();
     void RunFasthenry_clicked();
     void LoadInpFile_clicked();
+    void ShowModel_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -75,3 +75,8 @@ void MainWindow::LoadInpFile_clicked()
     if(qfile.exists("tmp.inp")) qfile.remove("tmp.inp");
     qfile.copy(fileNames.first(),"tmp.inp");
 }
+
+void MainWindow::ShowModel_clicked()
+{
+
+}
