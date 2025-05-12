@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1170</width>
+    <height>535</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string> Fasthenry 3.0wr Windows GUI</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="CheckVersionButton">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>110</y>
+      <width>151</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Run docker -v to check version or if docker is installed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="text">
+     <string>Check docker version</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="OutputBrowser">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>130</y>
+      <width>451</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOn</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOn</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>110</y>
+      <width>121</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Output of execuation</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="StartDockerButton">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>140</y>
+      <width>151</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Start docker desktop for windows. Need to install it first.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="text">
+     <string>Start docker desktop</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="BuildImageButton">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>200</y>
+      <width>151</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Build image from Dockerfile</string>
+    </property>
+    <property name="whatsThis">
+     <string>First generate Dockerfile then generate the image.</string>
+    </property>
+    <property name="text">
+     <string>Build Image</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>401</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;Tips: &lt;br&gt;1. Move mouse over buttons to see instructions.&lt;br&gt;2. check the input commands and their outputs.&lt;br&gt;3. put the fasthenry file, Dockerfile and .inp file in the same folder of this program.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="RunFasthenry">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>230</y>
+      <width>151</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Run fasthenry to process .inp file.</string>
+    </property>
+    <property name="whatsThis">
+     <string>First generate Dockerfile then generate the image.</string>
+    </property>
+    <property name="text">
+     <string>Run fasthenry</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="LoadInpFile">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>170</y>
+      <width>151</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>find and load .inp file, then prepare for fasthenry to process.</string>
+    </property>
+    <property name="whatsThis">
+     <string>First generate Dockerfile then generate the image.</string>
+    </property>
+    <property name="text">
+     <string>Load .inp file</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ShowModel">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>260</y>
+      <width>151</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Plot model from .inp file, run fasthenry first.</string>
+    </property>
+    <property name="whatsThis">
+     <string>First generate Dockerfile then generate the image.</string>
+    </property>
+    <property name="text">
+     <string>Show .inp model</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="Output_Zc">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>30</y>
+      <width>451</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOn</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOn</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>10</y>
+      <width>191</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Output of fasthenry result: Zc.mat</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ShowResult">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>290</y>
+      <width>151</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Plot model from .inp file, run fasthenry first.</string>
+    </property>
+    <property name="whatsThis">
+     <string>First generate Dockerfile then generate the image.</string>
+    </property>
+    <property name="text">
+     <string>Show result</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>140</y>
+      <width>191</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Model view:</string>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>160</y>
+      <width>451</width>
+      <height>351</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
