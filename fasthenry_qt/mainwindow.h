@@ -29,6 +29,7 @@ private slots:
     void RunFasthenry_clicked();
     void LoadInpFile_clicked();
     void ShowModel_clicked();
+    void ShowResult_clicked();
 
 private:
     Ui::MainWindow *ui;

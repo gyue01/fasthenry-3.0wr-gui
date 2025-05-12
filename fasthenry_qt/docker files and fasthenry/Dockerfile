@@ -1,5 +1,5 @@
 FROM mcr.microsoft.com/devcontainers/base:bullseye
-RUN apt-get update && apt-get install dos2unix vim ghostscript -y
+RUN apt-get update && apt-get install dos2unix vim ghostscript poppler-utils -y
 RUN mkdir -p /test
 ADD fasthenry /test
 ADD tmp.inp /test
