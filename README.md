@@ -1,5 +1,19 @@
 # Fasthenry GUI
 This software adds more user friendly interface to the famous fasthenry-3.0wr package. The fasthenry code which this project is based on is from https://github.com/wrcad/xictools/tree/master/fasthenry version 031424. This project contains the following efforts to help users to use the fasthenry in a easier way than the original linux based codes.
+
+The fasthenry original source code is in the folder "fasthenry-3.0wr-031424", you can put it into a Linux environment to compile and run. The major binary file is fasthenry which can process .inp file containing the geometry and other information of the pattern. The fasthenry program can output Zc.mat file which contains the inductance information. It can also generate zfuffile for the zbuf program (also compiled from the source code) to process to generate .ps file to show the geometry picture of the pattern. The source code also contains the original author's thesis and manual files about how to use the package.
+
+In the test_fasthenry folder, there are the compiled fasthenry and zbuf file, some Mathematic simulation, and a C program to generate .inp file for a micro-SQUID device. In the C code, there is switch to tell fasthenry to calculate normal metal film or the superconducting film inductance. (Refer to Guang Yue PhD thesis, FSU 2017)
+
+The parent folder contains configuration file for VS Code and docker dev container to run the code under windows. Based on this the fasthenry_qt folder contains a Qt GUI code to build docker image and run fasthenry inside a container. The program contains function to verity docker installation, extract the results and show the generated geometry pattern.
+
+## Download the Qt GUI and binary files to use fasthenry
+To compile the GUI you need Qt library and the Qt Creator software. You may also download the folder fasthenry_qt/binary_standalone to run the compiled binary file under windows. Put this folder under windows and install docker desktop for windows. Then run the fasthenry_qt.exe.
+
+The GUI contains tips to setup the program and basically you can just clicked the series of buttons from top to bottom to run fasthenry and show results. Each time a new .inp file is loaded, you need to build the docker image and run fasthenry again. The GUI also contains function to show the pattern geometry on the screen.
+
+For more details and more complex usage, please read the source code and make your own changes.
+
 ## Use fasthenry under windows through VS Code, docker and dev container
 Docker Decktop is a windows software which supports creating isolated evironment to run software inside. By creating such, the docker container, a software can run on different computers with different setup to avoid software compatible issuses and use small system recources. VS Code has extensions to support docker function and the dev container to support developing using docker.
 
