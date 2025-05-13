@@ -10,7 +10,7 @@ The parent folder contains configuration file for VS Code and docker dev contain
 ## Download the Qt GUI and binary files to use fasthenry
 To compile the GUI you need Qt library and the Qt Creator software. You may also download the folder fasthenry_qt/binary_standalone to run the compiled binary file under windows. Put this folder under windows and install docker desktop for windows. Then run the fasthenry_qt.exe.
 
-The GUI contains tips to setup the program and basically you can just clicked the series of buttons from top to bottom to run fasthenry and show results. Each time a new .inp file is loaded, you need to build the docker image and run fasthenry again. The GUI also contains function to show the pattern geometry on the screen.
+The GUI contains tips to setup the program and basically you can just clicked the series of buttons from top to bottom to run fasthenry and show results. Each time a new .inp file is loaded, you need to build the docker image and run fasthenry again. The GUI also contains function to show the pattern geometry on the screen. There are two .inp files provided as examples, the squid_normal.inp calculate a micro-SQUID shape of normal metal, the squid_sc.inp calculate the pattern in superconducting state where the kinetic inductance plays more important role.
 
 For more details and more complex usage, please read the source code and make your own changes.
 
