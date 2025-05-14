@@ -12,7 +12,7 @@ To compile the GUI you need Qt library and the Qt Creator software. You may also
 
 The GUI contains tips to setup the program and basically you can just clicked the series of buttons from top to bottom to run fasthenry and show results. Each time a new .inp file is loaded, you need to build the docker image and run fasthenry again. The GUI also contains function to show the pattern geometry on the screen. There are two .inp files provided as examples, the squid_normal.inp calculate a micro-SQUID shape of normal metal, the squid_sc.inp calculate the pattern in superconducting state where the kinetic inductance plays more important role.
 
-For more details and more complex usage, please read the source code and make your own changes.
+For more details and more complex usage, please read the PDF manuals in the source code and make your own changes.
 
 ## Use fasthenry under windows through VS Code, docker and dev container
 Docker Decktop is a windows software which supports creating isolated evironment to run software inside. By creating such, the docker container, a software can run on different computers with different setup to avoid software compatible issuses and use small system recources. VS Code has extensions to support docker function and the dev container to support developing using docker.
