@@ -14,6 +14,8 @@ The GUI contains tips to setup the program and basically you can just clicked th
 
 For more details and more complex usage, please read the PDF manuals in the source code and make your own changes.
 
+![Fasthenry GUI](https://github.com/user-attachments/assets/cbb520f8-fac6-4e8e-9b54-6dcfe2d2905c)
+
 ## Use fasthenry under windows through VS Code, docker and dev container
 Docker Decktop is a windows software which supports creating isolated evironment to run software inside. By creating such, the docker container, a software can run on different computers with different setup to avoid software compatible issuses and use small system recources. VS Code has extensions to support docker function and the dev container to support developing using docker.
 
